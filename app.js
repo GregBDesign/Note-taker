@@ -1,3 +1,5 @@
+const body = document.querySelector('body');
+const textArea = document.querySelector('textarea');
 const submitBtn = document.querySelector('#textSubmit');
 const textC = document.querySelector('textarea');
 const noteDisplay = document.querySelector('#noteDisplay');
@@ -26,5 +28,12 @@ addNote = () => {
 
 //Remove note
 noteDisplay.addEventListener('click', function(e){
-    e.target.parentNode.remove();
-})
+    if(e.target.textContent === 'Delete'){
+        e.target.parentNode.remove();
+    } else if(e.target.textContent === 'View') {
+        body.classList.toggle('modal'); 
+        textArea.classList.toggle('textRmv');
+        body.style.display = "block";
+        e.target.parentNode.classList.toggle('test');
+    } 
+});
